@@ -1,7 +1,8 @@
 # Django project
 
 ---
-1
+1 Задание
+
  from app1.models import Customer, Product, Order
  name2=Customer.objects.create(login='name2',email='name2@mail.ru') 
  storage = Storage.objects.get(name='First_storage')
@@ -17,7 +18,8 @@
 <QuerySet [<Order: Order Product Product1>, <Order: Order Product product2>]>
  
  ---
- 2
+ 2 Задание
+
  Product.objects.filter(name='Product1') 
 <QuerySet [<Product: Product Product1>]>
  Order.objects.exclude(product=product2)   
@@ -28,7 +30,8 @@
 <QuerySet [<Product: Product Product1>, <Product: Product product2>, <Product: Product product3>, <Product: Product product4>]>
 
 ---
-3
+3 Задание
+
  Order.objects.filter(product__name='Product1') 
 <QuerySet [<Order: Order Product Product1>]>
  Order.objects.filter(customer__login='user1')     
@@ -39,7 +42,8 @@
 <QuerySet [(2, 'product2'), (1, 'Product1')]>
 
 ---
-4
+4 Задание
+
 from django.db.models import Q
  Product.objects.filter(Q(name__icontains='Product1') | Q(Q(price__lt=100)))  
 <QuerySet [<Product: Product Product1>, <Product: Product product2>, <Product: Product product3>, <Product: Product product4>]>
@@ -49,7 +53,8 @@ from django.db.models import Q
 <QuerySet []>
 
 ---
-5
+5 Задание
+
 from django.db.models import Avg, Max, Min
 
  Product.objects.aggregate(average_price=Avg('price'), max_price=Max('price'), min_price=Min('price'))
