@@ -27,8 +27,8 @@
  Product.objects.order_by('price')                      
 `<QuerySet [<Product: Product product2>, <Product: Product product3>, <Product: Product product4>, <Product: Product Product1>]>`
  Product.objects.order_by('-price') 
-`<QuerySet [<Product: Product Product1>, <Product: Product product2>, <Product: Product product3>, <Product: Product product4>]>
-`
+`<QuerySet [<Product: Product Product1>, <Product: Product product2>, <Product: Product product3>, <Product: Product product4>]>`
+
 ---
 3 Задание
 
