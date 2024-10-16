@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Детали клиента: {{ object.login }}{% endblock %}
+{% block content %}
+<h1>Детали клиента: {{ object.login }}</h1>
+<p>Email: {{ object.email }}</p>
+<p>Дата регистрации: {{ object.registration_date }}</p>
+<a href="{% url 'customer_update' object.login %}">Редактировать</a>
+<a href="{% url 'customer_delete' object.login %}">Удалить</a>
+<a href="{% url 'customer_list' %}">Назад к списку клиентов</a>
+{% endblock %}
