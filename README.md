@@ -108,3 +108,12 @@ from django.db.models import Count
 
 
 `Storage: First_storage, Product Count: 4`
+
+
+---
+![img.png](venv/app1/proofOfWork/img.png)
+![img_1.png](venv/app1/proofOfWork/img_1.png)
+![img_2.png](venv/app1/proofOfWork/img_2.png)
+![img_3.png](venv/app1/proofOfWork/img_3.png)
+![img_4.png](venv/app1/proofOfWork/img_4.png)
+![img_5.png](venv/app1/proofOfWork/img_5.png)

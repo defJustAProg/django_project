@@ -2,8 +2,15 @@
 {% block title %}Список клиентов{% endblock %}
 {% block content %}
 <h1>Список клиентов</h1>
+
+<!-- Filtering Form -->
+<form method="get" class="filter-form">
+    {{ filter.form.as_p }}
+    <button type="submit">Фильтровать</button>
+</form>
+
 <ul>
-    {% for customer in object_list %}
+    {% for customer in filter.qs %}
         <li>
             <a href="{% url 'customer_detail' customer.login %}">{{ customer.login }}</a>
         </li>

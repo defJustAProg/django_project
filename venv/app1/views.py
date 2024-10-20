@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django_filters.views import FilterView
+from app1 import filters
+
 # Create your views here.
 def index(request):
     return HttpResponse("Hello from app1")
@@ -16,9 +19,10 @@ from django.urls import reverse_lazy
 from .models import Customer, Product, Order, Storage
 
 # Customer Views
-class CustomerListView(ListView):
+class CustomerListView(FilterView):
     model = Customer
     template_name = 'customer_list.html'
+    filterset_class = filters.Customer
 
 class CustomerDetailView(DetailView):
     model = Customer
@@ -40,9 +44,10 @@ class CustomerDeleteView(DeleteView):
     success_url = reverse_lazy('customer_list')
 
 # Product Views
-class ProductListView(ListView):
+class ProductListView(FilterView):
     model = Product
     template_name = 'product_list.html'
+    filterset_class = filters.Product
 
 class ProductDetailView(DetailView):
     model = Product
@@ -64,9 +69,10 @@ class ProductDeleteView(DeleteView):
     success_url = reverse_lazy('product_list')
 
 # Order Views
-class OrderListView(ListView):
+class OrderListView(FilterView):
     model = Order
     template_name = 'order_list.html'
+    filterset_class = filters.Order
 
 class OrderDetailView(DetailView):
     model = Order
