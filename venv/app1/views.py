@@ -35,7 +35,7 @@ class CustomerCreateView(CreateView):
 
 class CustomerUpdateView(UpdateView):
     model = Customer
-    template_name = 'customer_form.html'
+    template_name = 'customer_update.html'
     fields = ['login', 'email']
 
 class CustomerDeleteView(DeleteView):

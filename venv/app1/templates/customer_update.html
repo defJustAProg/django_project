@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Обновить клиента{% endblock %}
+
+{% block content %}
+    <h1>Обновить клиента: {{ customer.login }}</h1>
+    <form method="post" action="{% url 'customer_update' customer.login %}">
+        {% csrf_token %}
+        <div>
+            <label for="id_login">Логин:</label>
+            <input type="text" name="login" id="id_login" value="{{ customer.login }}" required>
+        </div>
+        <div>
+            <label for="id_email">Email:</label>
+            <input type="email" name="email" id="id_email" value="{{ customer.email }}" required>
+        </div>
+        <button type="submit">Сохранить изменения</button>
+    </form>
+    <a href="{% url 'customer_list' %}">Назад к списку клиентов</a>
+{% endblock %}
