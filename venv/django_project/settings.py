@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,8 +43,19 @@ INSTALLED_APPS = [
         'app1',
         'app2',
         'app3',
-    'django_filters'
+    'django_filters',
+    'rest_framework',
+'drf_spectacular'
 ]
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your API Title',
+    'DESCRIPTION': 'Your API Description',
+    'VERSION': '3.1.0',  # Укажите версию вашего API
+    'SERVE_INCLUDE_SCHEMA': False,  # Если вы не хотите, чтобы схема отображалась по умолчанию
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

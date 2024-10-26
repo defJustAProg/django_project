@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django_filters.views import FilterView
 from app1 import filters
+from rest_framework import viewsets
 
 # Create your views here.
 def index(request):
@@ -17,6 +18,19 @@ def url3(request):
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Customer, Product, Order, Storage
+from app1 import serializers
+
+class CustomerAPI(viewsets.ModelViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = serializers.Customer
+
+class ProductAPI(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = serializers.Product
+
+class OrderAPI(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = serializers.Order
 
 # Customer Views
 class CustomerListView(FilterView):

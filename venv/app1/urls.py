@@ -1,4 +1,5 @@
-from django.urls import path
+from django.urls import path, include
+from app1 import views
 from .views import (
     index,
     url2,
@@ -24,9 +25,21 @@ from .views import (
     StorageUpdateView,
     StorageDeleteView,
 )
+from rest_framework.routers import DefaultRouter
+from django.conf import settings
+from django.conf.urls.static import static
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+
+router = DefaultRouter()
+router.register('customers',views.CustomerAPI, basename='customers')
+router.register('products',views.ProductAPI, basename='products')
+router.register('orders',views.OrderAPI, basename='orders')
 
 urlpatterns = [
-    path('', index),
+path('', include(router.urls)),
+    path('schema/',SpectacularAPIView.as_view(),name='schema'),
+path('api/',SpectacularSwaggerView.as_view(url_name='schema'),name='schema'),
+    path('index', index),
     path('url2/', url2),
     path('url3/', url3),
 
@@ -57,4 +70,4 @@ urlpatterns = [
     path('storages/create/', StorageCreateView.as_view(), name='storage_create'),
     path('storages/update/<str:pk>/', StorageUpdateView.as_view(), name='storage_update'),
     path('storages/delete/<str:pk>/', StorageDeleteView.as_view(), name='storage_delete'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + router.urls
