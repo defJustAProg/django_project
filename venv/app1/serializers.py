@@ -7,14 +7,14 @@ class Customer(serializers.ModelSerializer):
         fields = '__all__'
 
 class Product(serializers.ModelSerializer):
-    Storage = models.Storage
+    Storage = models.Storage()
     class Meta:
         model = models.Product
         fields = '__all__'
 
 class Order(serializers.ModelSerializer):
-    product = models.Product
-    customer = models.Product
+    product = Product()
+    customer = Customer()
     class Meta:
         model = models.Order
         fields = '__all__'
