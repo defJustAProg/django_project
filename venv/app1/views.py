@@ -32,6 +32,10 @@ class OrderAPI(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = serializers.Order
 
+class StorageAPI(viewsets.ModelViewSet):
+    queryset = Storage.objects.all()
+    serializer_class = serializers.Storage
+
 # Customer Views
 class CustomerListView(FilterView):
     model = Customer

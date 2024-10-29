@@ -34,6 +34,7 @@ router = DefaultRouter()
 router.register('customers',views.CustomerAPI, basename='customers')
 router.register('products',views.ProductAPI, basename='products')
 router.register('orders',views.OrderAPI, basename='orders')
+router.register('storage',views.StorageAPI, basename='storage')
 
 urlpatterns = [
 path('', include(router.urls)),
